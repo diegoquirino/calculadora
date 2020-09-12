@@ -1,7 +1,7 @@
 FROM openjdk:16-alpine
 EXPOSE 8080
 
-RUN apt upgrade && apt install -y maven
+RUN apk update && apk add maven
 COPY . .
 RUN chmod +x ./mvnw
 RUN ./mvnw spring-boot:run
