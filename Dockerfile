@@ -7,5 +7,5 @@ RUN mvn -N io.takari:maven:wrapper
 RUN mvn install
 RUN chmod +x ./mvnw
 
-CMD ./mvnw spring-boot:start
+RUN ./mvnw spring-boot:start
 
