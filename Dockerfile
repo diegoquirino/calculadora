@@ -6,4 +6,4 @@ COPY . .
 RUN mvn -N io.takari:maven:wrapper
 RUN chmod +x ./mvnw
 
-CMD ./mvnw spring-boot:run
+CMD ./mvnw spring-boot:start
