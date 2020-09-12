@@ -24,9 +24,11 @@ public class SiteController {
     }
 
     @GetMapping("/contato")
-    public String paginaContato(Model model) {
-        model.addAttribute("classActiveContato","active");
-        return "contato";
+    public ModelAndView paginaContato(Model model) {
+        ModelAndView modelAndView = new ModelAndView("contato");
+        modelAndView.addObject("classActiveContato","active");
+        modelAndView.addObject("contato", new Contato());
+        return modelAndView;
     }
 
     @PostMapping("/contato")
@@ -34,7 +36,7 @@ public class SiteController {
         ModelAndView modelAndView = new ModelAndView("contato");
         modelAndView.addObject("classActiveContato","active");
         modelAndView.addObject("type", "success");
-        modelAndView.addObject("message", "Mensagem de " + contato.getTipo().toUpperCase() + " para a idade " + contato.getIdade().toUpperCase() + " foi enviada com sucesso!");
+        modelAndView.addObject("message", "Mensagem de " + contato.getTipo().toUpperCase() + " por usuário de idade " + contato.getIdade().toUpperCase() + " foi enviada com sucesso!");
         return modelAndView;
     }
 
