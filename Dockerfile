@@ -5,4 +5,5 @@ RUN apk update && apk add maven
 COPY . .
 RUN mvn -N io.takari:maven:wrapper
 RUN chmod +x ./mvnw
-RUN ./mvnw spring-boot:run
+
+CMD ./mvnw spring-boot:run
