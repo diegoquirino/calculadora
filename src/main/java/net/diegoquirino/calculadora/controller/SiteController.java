@@ -34,7 +34,7 @@ public class SiteController {
         ModelAndView modelAndView = new ModelAndView("contato");
         modelAndView.addObject("classActiveContato","active");
         modelAndView.addObject("type", "success");
-        modelAndView.addObject("message", "Mensagem de " + contato.getTipo().toUpperCase() + " foi enviada com sucesso!");
+        modelAndView.addObject("message", "Mensagem de " + contato.getTipo().toUpperCase() + " para a idade " + contato.getIdade().toUpperCase() + " foi enviada com sucesso!");
         return modelAndView;
     }
 
