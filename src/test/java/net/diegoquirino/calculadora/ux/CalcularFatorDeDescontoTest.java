@@ -18,7 +18,7 @@ import static org.hamcrest.Matchers.*;
 @Nested
 @DisplayName("Teste de Sistema - Calcular Fator de Desconto")
 public class CalcularFatorDeDescontoTest {
-
+/*
     WebDriver driver;
     final String URL_BASE = "http://calculadora.diegoquirino.net/";
 
@@ -40,14 +40,14 @@ public class CalcularFatorDeDescontoTest {
     @Tags({@Tag("all"),@Tag("C")})
     @DisplayName("Verificar o fator de desconto quando Cliente C e Quantidade a partir de 1000 Então será igual a 0.90")
     public void verificarFatorDescontoQuandoClienteCQuantidadeAPartirDe1000EntaoFatorIgualA090() {
-        /* Procedimento do Caso de Teste */
+        // Procedimento do Caso de Teste //
         clicar_por_id("welcome.button.calculardesconto");
         clicar_por_cssSelector("tr:nth-child(1) .btn-primary > .glyphicon");
         escolher_item_combo_por_id_e_label("tipoCliente", "C");
         inserir_texto_por_id("quantidade", "1000");
         submeter_formulario("calculardesconto.button.calcular");
 
-        /* Verificações do Caso de Teste */
+        // Verificações do Caso de Teste //
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".panel-body > p:nth-child(3)")));
         assertThat(driver.findElement(By.cssSelector(".panel-body > p:nth-child(3)")).getText(), is("Fator obtido: 0.9 (ou seja, 10% de desconto)"));
@@ -100,5 +100,7 @@ public class CalcularFatorDeDescontoTest {
         ));
         driver.findElement(By.id(id)).click();
     }
+
+*/
 
 }

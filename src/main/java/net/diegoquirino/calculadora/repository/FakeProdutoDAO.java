@@ -9,6 +9,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @Repository
+@Primary
 public class FakeProdutoDAO implements ProdutoDAO {
 
     Collection<Produto> produtos = criarProdutos(10);

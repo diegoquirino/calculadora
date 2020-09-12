@@ -11,6 +11,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @Repository
+@Primary
 public class FakeItemDAO implements ItemDAO {
 
     Collection<Item> itens = criarItens(10);
