@@ -1,6 +1,7 @@
 package net.diegoquirino.calculadora.service;
 
 import net.diegoquirino.calculadora.model.Produto;
+import net.diegoquirino.calculadora.repository.FakeProdutoDAO;
 import org.junit.jupiter.api.*;
 
 import java.util.Collection;
@@ -14,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ProdutoServiceTest {
 
     /** Stub para o Repositório de Produto **/
-    ProdutoDAOStub stub;
+    FakeProdutoDAO stub;
 
     /** Ponto de inicialização dos testes **/
     ProdutoService driver;
@@ -27,7 +28,7 @@ class ProdutoServiceTest {
     @BeforeEach
     void setUp() {
         this.driver = new ProdutoService();
-        this.stub = new ProdutoDAOStub();
+        this.stub = new FakeProdutoDAO();
         this.driver.setProdutoDAO(this.stub);
     }
 

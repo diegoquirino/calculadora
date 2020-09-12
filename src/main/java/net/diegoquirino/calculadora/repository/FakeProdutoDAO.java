@@ -2,6 +2,7 @@ package net.diegoquirino.calculadora.repository;
 
 import com.github.javafaker.Faker;
 import net.diegoquirino.calculadora.model.Produto;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;
@@ -45,7 +46,7 @@ public class FakeProdutoDAO implements ProdutoDAO {
         this.produtos.remove(produto);
     }
 
-    private Collection<Produto> criarProdutos(Integer quantidade) {
+    public Collection<Produto> criarProdutos(Integer quantidade) {
         Collection<Produto> produtos = new ArrayList<Produto>();
         Faker faker = new Faker(new Locale("pt_BR"));
         for(int i = 0; i < quantidade; i++) {
@@ -55,6 +56,7 @@ public class FakeProdutoDAO implements ProdutoDAO {
                     faker.number().randomDouble(2, 100, 2000)
             ));
         }
+        this.produtos = produtos;
         return produtos;
     }
 

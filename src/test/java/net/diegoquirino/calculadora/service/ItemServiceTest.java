@@ -4,6 +4,7 @@ import com.github.javafaker.Faker;
 import net.diegoquirino.calculadora.model.Item;
 import net.diegoquirino.calculadora.model.Produto;
 import net.diegoquirino.calculadora.model.TipoCliente;
+import net.diegoquirino.calculadora.repository.FakeItemDAO;
 import org.junit.jupiter.api.*;
 
 import java.util.NoSuchElementException;
@@ -16,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ItemServiceTest {
 
     /** Stub para o Repositório de Produto **/
-    ItemDAOStub stub;
+    FakeItemDAO stub;
 
     /** Ponto de inicialização dos testes **/
     ItemService driver;
@@ -38,7 +39,7 @@ class ItemServiceTest {
     @BeforeEach
     void setUp() {
         this.driver = new ItemService();
-        this.stub = new ItemDAOStub();
+        this.stub = new FakeItemDAO();
         this.driver.setItemDAO(this.stub);
         this.itemPersonalizado = new Item(0L, TipoCliente.A, this.produto, 0);
     }

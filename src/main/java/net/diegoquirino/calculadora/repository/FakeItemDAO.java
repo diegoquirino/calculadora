@@ -1,20 +1,19 @@
 package net.diegoquirino.calculadora.repository;
 
+import com.github.javafaker.Faker;
 import net.diegoquirino.calculadora.model.Item;
 import net.diegoquirino.calculadora.model.Produto;
+import net.diegoquirino.calculadora.model.TipoCliente;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Optional;
-import java.util.concurrent.ArrayBlockingQueue;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Repository
 public class FakeItemDAO implements ItemDAO {
 
-    Collection<Item> itens = new ArrayList<>();
+    Collection<Item> itens = criarItens(10);
 
     @Override
     public Optional<Item> get(Long id) {
@@ -60,5 +59,33 @@ public class FakeItemDAO implements ItemDAO {
         } else {
             return ordenado.get(size-1).getId() + 1L;
         }
+    }
+
+    public Collection<Item> criarItens(Integer quantidade) {
+        Collection<Item> itens = new ArrayList<Item>();
+        Faker faker = new Faker(new Locale("pt_BR"));
+        for(int i = 0; i < quantidade; i++) {
+            Produto produto = new Produto(
+                    i+1l,
+                    faker.commerce().productName(),
+                    faker.number().randomDouble(2, 100, 2000)
+            );
+            TipoCliente tipoCliente = TipoCliente.A;
+            if(i % 2 != 0) {
+                tipoCliente = TipoCliente.B;
+            }
+            if(i % 3 == 0) {
+                tipoCliente = TipoCliente.C;
+            }
+            itens.add(
+                    new Item(
+                            i + 1l,
+                            tipoCliente,
+                            produto,
+                            faker.random().nextInt(1,2000)
+            ));
+        }
+        this.itens = itens;
+        return itens;
     }
 }
