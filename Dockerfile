@@ -6,5 +6,5 @@ COPY . .
 RUN mvn -N io.takari:maven:wrapper
 RUN chmod +x ./mvnw
 
-CMD ./mvnw clean spring-boot:run
+ENTRYPOINT ./mvnw clean spring-boot:run
 
