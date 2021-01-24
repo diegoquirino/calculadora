@@ -6,6 +6,5 @@ COPY . .
 RUN mvn -N io.takari:maven:wrapper
 RUN chmod +x ./mvnw
 
-#Linha de Comando para a imagem, uma vez criada
-#ENTRYPOINT ./mvnw clean spring-boot:run
+ENTRYPOINT ./mvnw clean spring-boot:run
 
