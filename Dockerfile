@@ -3,8 +3,7 @@ EXPOSE 8080
 
 RUN apk update && apk add maven
 COPY . .
-RUN mvn -N io.takari:maven:wrapper
-RUN chmod +x ./mvnw
+RUN mvn clean package
 
-ENTRYPOINT ./mvnw clean spring-boot:run
+ENTRYPOINT java -jar ./target/calculadora-1.0.0.jar
 
