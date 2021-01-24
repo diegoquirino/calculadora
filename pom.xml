@@ -10,8 +10,8 @@
 	</parent>
 	<groupId>net.diegoquirino</groupId>
 	<artifactId>calculadora</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<version>1.0.0</version>
+	<packaging>jar</packaging>
 	<name>Calculadora de Descontos</name>
 	<description>Projeto Web da Calculadora de Descontos</description>
 
